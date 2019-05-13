@@ -17,7 +17,7 @@ public class Corrigir {
 
     // Especifique o caminho dos casos de teste.
     // Deve haver dois subdiretorios: entrada e saida
-    private final static String CAMINHO_CASOS_TESTE = "/Users/daniellucredio/Desktop/casosDeTesteT1/casosDeTesteSintatico";
+    private final static String CAMINHO_CASOS_TESTE = "casosDeTesteT1/casosDeTesteSintatico";
 
     // As flags GERA e VERIFICA são de uso do professor
     // GERA = true significa que a saída vai ser gerada, sobrescrevendo qualquer
@@ -32,7 +32,7 @@ public class Corrigir {
     // Obs: este é o mesmo método que será usado pelo professor na correção
     // A nota que você obtiver aqui será usada no cálculo de sua nota do trabalho
     public static void main(String[] args) throws IOException, RecognitionException {
-/*        File diretorioCasosTeste = new File(CAMINHO_CASOS_TESTE + "/entrada");
+        File diretorioCasosTeste = new File(CAMINHO_CASOS_TESTE + "/entrada");
         File[] casosTeste = diretorioCasosTeste.listFiles();
         int totalCasosTeste = casosTeste.length;
         int casosTesteErrados = 0;
@@ -111,6 +111,6 @@ public class Corrigir {
             System.err.println("Nota = " + nota + " (" + LuaParser.grupo + ")");
         } else {
             System.err.println("Gabarito gerado: " + LuaParser.grupo);
-        }*/
+        }
     }
 }

@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/T1/T1/T1/src/t1/T1ErrorListener.java</file>
-            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/T1/T1/T1/src/t1/Corrigir.java</file>
+            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/TCompiladores1/T1/src/t1/EntradaTabelaDeSimbolos.java</file>
+            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/TCompiladores1/T1/src/t1/Lua.g4</file>
+            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/TCompiladores1/T1/src/t1/Corrigir.java</file>
+            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/TCompiladores1/T1/src/t1/TabelaDeSimbolos.java</file>
+            <file>file:/home/rodrigo/Graduacao/SetimoSemestre/Compila1/TCompiladores1/T1/src/t1/TestaAnalisadorSintatico.java</file>
         </group>
     </open-files>
 </project-private>

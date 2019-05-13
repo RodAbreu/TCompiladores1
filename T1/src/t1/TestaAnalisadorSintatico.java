@@ -13,7 +13,7 @@ public class TestaAnalisadorSintatico {
 // Descomente as linhas abaixo para testar o analisador gerado.
 // Obs: a linha abaixo está configurada para usar como entrada o arquivo lua1.txt
 // Modifique-a para testar os demais exemplos
-/*        CharStream cs = CharStreams.fromStream(TestaAnalisadorSintatico.class.getResourceAsStream("exemplos/lua1.txt"));
+        CharStream cs = CharStreams.fromStream(TestaAnalisadorSintatico.class.getResourceAsStream("exemplos/lua1.txt"));
         LuaLexer lexer = new LuaLexer(cs);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LuaParser parser = new LuaParser(tokens);
@@ -27,6 +27,6 @@ public class TestaAnalisadorSintatico {
             System.out.print(out);
         } else {
             out.println("Fim da analise. Com erros sintaticos.");
-        }*/
+        }
     }
 }
