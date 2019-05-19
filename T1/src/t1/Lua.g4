@@ -2,48 +2,59 @@ grammar Lua;
 
 @members {
     public static String grupo= "<507087, 726523, 726588>";
-}
+    //                            Lucas, Gabrieli e Rodrigo}
+
 /*
-    ANÁLISE LÉXICA
+    ****ANÁLISE LÉXICA - LINGUAGEM LUA****
+
+    Necessários nesse trabalho:
+
+    a) Palavras reservadas (todas)
+    b) Símbolos reservados (todos)
+    c) Nomes
+    d)   Cadeias   de   caracteres   (apenas   as   versões   curtas,   sem   sequência   de   escape,   quebras   de   linha
+    não permitidas)
+    e)   Constantes   numéricas   (apenas   decimais,   sem   sinal,   com   dígitos   antes   e   depois   do   ponto
+    decimal opcionais)
+
 */
 
-/*PALAVRAS RESERVADAS*/
+//A) PALAVRAS RESERVADAS
+// Podem ser encontradas em http://www.lua.org/manual/5.1/pt/manual.html#2.3
 
- And : 'and' ;
- Or : 'or' ;
- Break : 'break' ;
- Do : 'do' ;
- Else : 'else' ;
- Elseif : 'elseif' ;
- End : 'end' ;
- False : 'false' ;
- For : 'for' ;
- Function : 'function' ;
- If : 'if' ;
- In : 'in' ;
- Local : 'local' ;
- Nil : 'nil' ;
- Not : 'not' ;
- Repeat : 'repeat' ;
- Return : 'return' ;
- Then : 'then' ;
- True : 'true' ;
- Until : 'until' ;
- While : 'while' ;
+And: 'and';
+Break: 'break';
+Do: 'do';
+Else: 'else';
+Elseif: 'elseif';
+End: 'end';
+False: 'false';
+For: 'for';
+Function: 'function';
+If: 'if';
+In: 'in';
+Local: 'local';
+Nil: 'nil';
+Not: 'not';
+Or: 'or';
+Repeat: 'repeat';
+Return: 'return';
+Then: 'then';
+True: 'true';
+Until: 'until';
+While: 'while';
 
-/* SIMBOLOS RESERVADOS: */
 
-ParenE : '(' ;
-ParenD : ')' ;
-PontoVir : ';' ;
+//B) SÍMBOLOS RESERVADOS:
+
+ParenteseEsquerdo : '(' ;
+ParenteseDireito : ')' ;
+PontoVirgula : ';' ;
 PontoFinal : '.' ;
 Virgula : ',' ;
-Pontos3 : '...';
-
-OpAtrib: '='; //Atribuição
-
-OpRel: '<' | '>' | '<=' | '>=' | '~=' | '=='; //Operadores lógicos
-
+TresPontos : '...';
+OperadorAtribuicao: '=';
+OperadorRelacional: '<' | '>' | '<=' | '>=' | '~=' | '==';
 Menos : '-' ;
 Mais : '+' ;
 DoisPontos : '..';
@@ -52,37 +63,29 @@ Dividir : '/' ;
 Modulo : '%' ;
 Potencia : '^' ;
 
-/* LETRAS E NÚMEROS */
-
+//LETRAS E NÚMEROS
 // Fragments que auxiliam na construção das regras léxicas
+
 fragment LetraMinuscula : ('a'..'z');
 fragment LetraMaiuscula : ('A'..'Z');
 fragment Letra: LetraMinuscula | LetraMaiuscula;
 fragment Digito : ('0'..'9');
 
-/*
-    NOMES DE VARIAVEIS:
-    Qualquer combinação de letras, números e sublinhado que não comece com número
-*/
 
-Nome: (Letra|'')(Letra|''|Digito)* ;
+//C) NOMES DE VARIAVEIS:
+//Qualquer cadeia de letras, números e sublinhado que não comece com um dígito
 
+Nome: (Letra|'_')(Letra|'_'|Digito)* ;
 
-/*
-    CADEIA DE CARACTERES:
-    Apenas as versões curtas, sem sequência de escape, quebras de linha não permitidas
-*/
+//D) CADEIA DE CARACTERES:
+//Apenas as versões curtas, sem sequência de escape, quebras de linha não permitidas
 
 CadeiaCaracteres: ('\'' | '"')(~('\'' | '"'))*('\'' | '"');
 
-
-/*
-    CONSTANTES NUMÉRICAS:
-    Apenas decimais, sem sinal, com dígitos antes e depois do ponto decimal opcionais
-*/
+//CONSTANTES NUMÉRICAS:
+//Apenas decimais, sem sinal, com dígitos antes e depois do ponto decimal opcionais
 
 ConstanteNumerica: Digito+ (PontoFinal Digito+)?;
-
 
 //Ignora comentarios, comentarios na mesma linha
 Comentario: '--' ~('\n')* '\n' -> skip;
@@ -90,12 +93,15 @@ Comentario: '--' ~('\n')* '\n' -> skip;
 // Ignora tabulações, returns e quebras de linha
 WS : [ \t\r\n]+ -> skip;
 
-
 /*
-    ANÁLISE SINTÁTICA
+    ****ANÁLISE SINTÁTICA****
 */
 
-// Regra inicial
+// Baseando-nos na regra especificada no trabalho:
+/* Algumas dicas:
+-   Crie   uma   regra   nova,   no   início   da   gramática   (depois   dos   padrões   léxicos).   Ela   será   necessária   nos
+testes:
+*/
 programa : trecho;
 
 // Trecho de uma parte do programa, podendo ter quantos comandos necessários e opcional um ultimo comando
